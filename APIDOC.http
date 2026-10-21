@@ -1,0 +1,115 @@
+#api call for creating user account
+###
+POST http://127.0.0.1:8000/vehicle/Register/
+Content-Type: application/json
+
+{
+    "username":"django",
+    "email":"django@gmail.com",
+    "password":"django123"
+}
+
+#api call for craeting token
+###
+POST  http://127.0.0.1:8000/vehicle/token/
+Content-Type : application/json
+
+{
+    "username":"django",
+    "password":"django123"
+}
+
+#api call for listing service request
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#api call for adding service request
+###
+POST http://127.0.0.1:8000/vehicle/servicerequest/
+Content-Type: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+{
+    "id": 1,
+    "vehicle_number": "KL08AB1234",
+    "vehicle_model": "Maruti Swift",
+    "problem_description": "Regular servicing and engine oil change required.",
+    "service_type": "General Service",
+    "priority": "High",
+    "status": "Requested",
+    "service_date": "2026-10-25",
+    "created_date": "2026-10-21T06:22:59.769237Z",
+    "owner": 2
+}
+
+#api call for fetching service request
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/2/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#api call for updating service request
+###
+PUT http://127.0.0.1:8000/vehicle/servicerequest/1/
+Content-Type: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+{
+    "id": 1,
+    "vehicle_number": "KL08AB1234",
+    "vehicle_model": "Maruti Swift",
+    "problem_description": "Regular servicing and engine oil change required.",
+    "service_type": "General Service",
+    "priority": "High",
+    "status": "Inspection",
+    "service_date": "2026-10-25"
+    
+}
+
+#api call for deleting service request
+###
+DELETE http://127.0.0.1:8000/vehicle/servicerequest/10/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#======================================================================
+
+#api call for filtering service request by service_type,priority,status
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/?service_type=Electrical
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#api call for searching service requset
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/?search=Hyundai i20
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#API to display pending service requests.
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/pending/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+# API returning the total number of service requests
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/total/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#API returning service requests grouped by status.
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/status/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+#API returning High and Critical service requests.
+###
+GET http://127.0.0.1:8000/vehicle/servicerequest/priority/
+Accept: application/json
+Authorization: Token a4ad35bfbbf71f257c701a26469c37fd268d0f56
+
+
